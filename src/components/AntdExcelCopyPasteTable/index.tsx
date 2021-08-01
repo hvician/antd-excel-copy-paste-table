@@ -1,8 +1,9 @@
-import React, { ClipboardEvent } from 'react'
-import { Table } from 'antd'
+import React, { ClipboardEvent, useState } from 'react'
+import { Table, TableColumnType, TableProps } from 'antd'
 import 'antd/dist/antd.css'
 import styled from 'styled-components'
 import { pasteEvent } from './utils'
+import TableFooter from './TableFooter'
 
 const Input = styled.input`
   padding: 2em;
@@ -13,22 +14,41 @@ const Input = styled.input`
   width: 100%;
 `
 
-const pasteHandler = (data: any) => {
-  console.log(data)
+interface IAntdExcelCopyPasteTableProps {
+  tableDataHandler?: (tableData: unknown[]) => void
+  actionButtonTitle?: string
 }
 
-const AntdExcelCopyPasteTable: React.FC = () => {
-  const columns: any[] = []
-  const data: any = undefined
+const AntdExcelCopyPasteTable: React.FC<IAntdExcelCopyPasteTableProps> = props => {
+  const { tableDataHandler, actionButtonTitle } = props
+
+  const [columns, setColumns] = useState<TableColumnType<unknown>[] | undefined>(undefined)
+  const [tableData, setTableData] = useState<TableProps<unknown>[] | undefined>(undefined)
 
   return (
     <>
       <Input
-        onPaste={(event: ClipboardEvent<any>) => pasteEvent(pasteHandler, event)}
+        readOnly
+        onPaste={(event: ClipboardEvent<any>) => pasteEvent(setColumns, setTableData, event)}
         onChange={null}
-        value="paste excel data here"
+        defaultValue="paste excel data here"
       />
-      <Table<any> dataSource={data} columns={columns} />
+      {columns && tableData && (
+        <Table<any>
+          dataSource={tableData}
+          columns={columns}
+          pagination={false}
+          footer={(data: unknown[]) => (
+            <TableFooter
+              setColumns={setColumns}
+              setTableData={setTableData}
+              tableDataHandler={tableDataHandler}
+              tableData={data}
+              actionButtonTitle={actionButtonTitle}
+            />
+          )}
+        />
+      )}
     </>
   )
 }
