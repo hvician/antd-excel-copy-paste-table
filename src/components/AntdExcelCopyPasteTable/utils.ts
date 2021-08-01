@@ -34,7 +34,6 @@ export const pasteEvent = (
   const value = event.clipboardData.getData('text/plain')
   const parsedData = parse(value, parseConfig)
 
-  console.log(parsedData.data)
   const cols = makeColumns(parsedData.data)
   setColumns(cols)
 
