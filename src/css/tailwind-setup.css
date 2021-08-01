@@ -5,3 +5,7 @@
 .app {
   @apply bg-green-400;
 }
+
+.text-right {
+  text-align: right;
+}

@@ -4,7 +4,7 @@
   "description": "ant design table copy from excel powered by Rollup.",
   "author": "hvician",
   "license": "MIT",
-  "repository": "hvician/antd-table-excel-copy-pa",
+  "repository": "hvician/antd-excel-copy-paste-table",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "unpkg": "dist/index.umd.js",
@@ -27,6 +27,7 @@
     "@storybook/react": "^6.1.10",
     "@svgr/rollup": "^5.5.0",
     "@svgr/webpack": "^5.5.0",
+    "@types/papaparse": "^5.2.6",
     "@types/react": "^16.9.27",
     "@types/react-dom": "^16.9.7",
     "@types/styled-components": "^5.1.4",
@@ -69,8 +70,10 @@
   },
   "dependencies": {
     "@use-it/event-listener": "^0.1.6",
+    "antd": "^4.16.9",
     "casual-browserify": "^1.5.19-2",
     "clsx": "^1.1.1",
+    "papaparse": "^5.3.1",
     "react-uuid": "^1.0.2",
     "styled-components": "^5.2.1",
     "tailwindcss": ">=2.0.1"
