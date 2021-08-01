@@ -1,4 +1,4 @@
-import { Row, TableColumnType, TableProps, Col, Button } from 'antd'
+import { Row, TableColumnType, TableProps, Col, Button, Space } from 'antd'
 import React from 'react'
 
 interface ITableFooterProps {
@@ -14,27 +14,29 @@ const TableFooter: React.FC<ITableFooterProps> = props => {
   return (
     <Row justify="end">
       <Col span={4} className="text-right">
-        <Button
-          type="default"
-          shape="round"
-          onClick={() => {
-            setColumns(null)
-            setTableData(null)
-          }}
-        >
-          Clear
-        </Button>
-        {tableDataHandler && tableData && (
+        <Space>
           <Button
-            type="primary"
+            type="default"
             shape="round"
             onClick={() => {
-              tableDataHandler(tableData)
+              setColumns(null)
+              setTableData(null)
             }}
           >
-            {actionButtonTitle || 'Process Data'}
+            Clear
           </Button>
-        )}
+          {tableDataHandler && tableData && (
+            <Button
+              type="primary"
+              shape="round"
+              onClick={() => {
+                tableDataHandler(tableData)
+              }}
+            >
+              {actionButtonTitle || 'Process Data'}
+            </Button>
+          )}
+        </Space>
       </Col>
     </Row>
   )
