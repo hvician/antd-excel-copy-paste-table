@@ -4,7 +4,7 @@
   "description": "ant design table copy from excel powered by Rollup.",
   "author": "hvician",
   "license": "MIT",
-  "repository": "hvician/antd-table-excel-copy-pa",
+  "repository": "hvician/antd-excel-copy-paste-table",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "unpkg": "dist/index.umd.js",
