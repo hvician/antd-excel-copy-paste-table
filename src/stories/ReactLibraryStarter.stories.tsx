@@ -1,15 +1,15 @@
 import React from 'react'
 import { MyComponent } from '..'
+import AntdExcelCopyPastTable from '../components/AntdExcelCopyPasteTable'
 
 export default {
-  title: 'React Library Starter',
+  title: 'Custom React Components',
 }
 
 export const Default: React.FC = () => {
-  return (
-    <MyComponent
-      text="Welcome to your library! 😄"
-      description="Go ahead and make magic today."
-    />
-  )
+  return <MyComponent text="Custom react components by Henrich Vician" description="" />
+}
+
+export const AntdExcelCopyPastTableStory: React.FC = () => {
+  return <AntdExcelCopyPastTable />
 }
