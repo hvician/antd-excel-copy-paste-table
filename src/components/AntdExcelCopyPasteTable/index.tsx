@@ -2,6 +2,7 @@ import React, { ClipboardEvent, useState } from 'react'
 import { Table, TableColumnType, TableProps } from 'antd'
 import 'antd/dist/antd.css'
 import styled from 'styled-components'
+import { AnySchema } from 'yup'
 import { pasteEvent } from './utils'
 import TableFooter from './TableFooter'
 
@@ -17,10 +18,11 @@ const Input = styled.input`
 interface IAntdExcelCopyPasteTableProps {
   tableDataHandler?: (tableData: unknown[]) => void
   actionButtonTitle?: string
+  validationSchema?: AnySchema
 }
 
 const AntdExcelCopyPasteTable: React.FC<IAntdExcelCopyPasteTableProps> = props => {
-  const { tableDataHandler, actionButtonTitle } = props
+  const { tableDataHandler, validationSchema, actionButtonTitle } = props
 
   const [columns, setColumns] = useState<TableColumnType<unknown>[] | undefined>(undefined)
   const [tableData, setTableData] = useState<TableProps<unknown>[] | undefined>(undefined)
@@ -45,6 +47,7 @@ const AntdExcelCopyPasteTable: React.FC<IAntdExcelCopyPasteTableProps> = props =
               tableDataHandler={tableDataHandler}
               tableData={data}
               actionButtonTitle={actionButtonTitle}
+              valitadionSchema={validationSchema}
             />
           )}
         />
