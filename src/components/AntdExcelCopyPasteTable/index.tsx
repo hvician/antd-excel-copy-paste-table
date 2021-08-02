@@ -25,13 +25,13 @@ const AntdExcelCopyPasteTable: React.FC<IAntdExcelCopyPasteTableProps> = props =
   const [columns, setColumns] = useState<TableColumnType<unknown>[] | undefined>(undefined)
   const [tableData, setTableData] = useState<TableProps<unknown>[] | undefined>(undefined)
 
+  const defaultValue = 'paste excel data here'
   return (
     <>
       <Input
-        readOnly
         onPaste={(event: ClipboardEvent<any>) => pasteEvent(setColumns, setTableData, event)}
-        onChange={null}
-        defaultValue="paste excel data here"
+        onChange={() => defaultValue}
+        value={defaultValue}
       />
       {columns && tableData && (
         <Table<any>
