@@ -14,7 +14,8 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production && rm -rf dist && rollup -c",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=aacbd1e02ee7"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
@@ -35,6 +36,7 @@
     "@typescript-eslint/parser": "^3.7.1",
     "autoprefixer": "^10.1.0",
     "babel-loader": "^8.1.0",
+    "chromatic": "*",
     "cross-env": "^7.0.3",
     "cssnano": "^4.1.10",
     "eslint": "^7.6.0",
