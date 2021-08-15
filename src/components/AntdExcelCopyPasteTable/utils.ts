@@ -1,18 +1,19 @@
 import { ClipboardEvent } from 'react'
 import { TableColumnType, TableProps } from 'antd'
-import { parse } from 'papaparse'
+import { parse, ParseConfig } from 'papaparse'
 
-const parseConfig = {
-  header: true,
+const parseConfig: ParseConfig<any> = {
+  header: false,
   delimiter: '\t',
+  skipEmptyLines: true,
 }
 
 const makeColumns = (parsedData: unknown[]) => {
   const keys = Object.keys(parsedData[0])
 
   return keys
-    ? keys.map((key: string) => ({
-        title: key,
+    ? keys.map((key: string, index: number) => ({
+        title: `Column ${index + 1}`,
         dataIndex: key,
         key,
       }))
@@ -20,10 +21,15 @@ const makeColumns = (parsedData: unknown[]) => {
 }
 
 const makeTableData = (parsedData: unknown[]) =>
-  parsedData.map((item: Record<string, any>, index: number) => {
-    const keyedItem = item
-    keyedItem.key = index
-    return keyedItem
+  parsedData.map((row: unknown[], rowIndex: number) => {
+    const newRow: any = row.reduce((reducer: unknown, rowItem: unknown, index: number) => {
+      // eslint-disable-next-line no-param-reassign
+      reducer[`${index}`] = rowItem
+      return reducer
+    }, {})
+
+    newRow.key = rowIndex
+    return newRow
   })
 
 export const pasteEvent = (
@@ -32,6 +38,7 @@ export const pasteEvent = (
   event: ClipboardEvent<any>
 ): void => {
   const value = event.clipboardData.getData('text/plain')
+
   const parsedData = parse(value, parseConfig)
 
   const cols = makeColumns(parsedData.data)
