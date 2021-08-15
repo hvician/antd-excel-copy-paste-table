@@ -1,5 +1,5 @@
 {
-  "name": "antd-table-excel-copy-paste",
+  "name": "@hvician/antd-table-excel-copy-paste",
   "version": "1.0.0",
   "description": "ant design table copy from excel powered by Rollup.",
   "author": "hvician",
