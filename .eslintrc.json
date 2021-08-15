@@ -27,6 +27,7 @@
   "plugins": ["react", "import", "prettier", "@typescript-eslint"],
   "rules": {
     "no-console": "off",
+    "no-nested-ternary": "off",
     // prettier
     "prettier/prettier": ["error"],
     // TypeScript
