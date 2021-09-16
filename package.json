@@ -1,10 +1,9 @@
 {
-  "name": "antd-table-excel-copy-paste",
+  "name": "@hvician/antd-excel-copy-paste-table",
   "version": "1.0.0",
   "description": "ant design table copy from excel powered by Rollup.",
   "author": "hvician",
   "license": "MIT",
-  "repository": "hvician/antd-excel-copy-paste-table",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "unpkg": "dist/index.umd.js",
@@ -78,6 +77,7 @@
     "papaparse": "^5.3.1",
     "react-uuid": "^1.0.2",
     "styled-components": "^5.2.1",
-    "tailwindcss": ">=2.0.1"
+    "tailwindcss": ">=2.0.1",
+    "yup": "^0.32.9"
   }
 }
