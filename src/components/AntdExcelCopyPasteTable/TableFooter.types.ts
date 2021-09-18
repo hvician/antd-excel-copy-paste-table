@@ -7,7 +7,7 @@ export interface ITableFooterProps {
   setTableData: (tableData: TableProps<unknown>[]) => void
   tableDataHandler?: (tableData: unknown[]) => void
   tableData: unknown[]
-  actionButtonTitle: string
+  actionButtonTitle?: string
   valitadion?: Ivalidation
   setValidationErrors?: (validationErrors: ValidationError['errors'] | undefined) => void
 }
