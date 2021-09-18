@@ -1,18 +1,8 @@
 /* eslint-disable no-alert */
-import { Row, TableColumnType, TableProps, Col, Button, Space } from 'antd'
+import { Row, Col, Button, Space } from 'antd'
 import React from 'react'
 import { ValidationError } from 'yup'
-import { Ivalidation } from './index'
-
-interface ITableFooterProps {
-  setColumns: (columnData: TableColumnType<unknown>[]) => void
-  setTableData: (tableData: TableProps<unknown>[]) => void
-  tableDataHandler?: (tableData: unknown[]) => void
-  tableData: unknown[]
-  actionButtonTitle: string
-  valitadion?: Ivalidation
-  setValidationErrors?: (validationErrors: ValidationError['errors'] | undefined) => void
-}
+import { ITableFooterProps } from './TableFooter.types'
 
 const TableFooter: React.FC<ITableFooterProps> = props => {
   const {

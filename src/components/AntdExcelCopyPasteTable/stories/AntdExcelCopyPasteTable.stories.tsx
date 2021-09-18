@@ -2,7 +2,8 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 import * as yup from 'yup'
 import { PageHeader, Descriptions } from 'antd'
-import AntdExcelCopyPastTable, { Ivalidation } from '../components/AntdExcelCopyPasteTable'
+import AntdExcelCopyPastTable from '..'
+import { Ivalidation } from '../AntdExcelCopyPasteTable.types'
 
 export default {
   title: 'Custom React Components by Henrich Vician',

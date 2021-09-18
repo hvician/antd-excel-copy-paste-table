@@ -2,10 +2,11 @@ import React, { ClipboardEvent, useState, useEffect } from 'react'
 import { Table, TableColumnType, TableProps } from 'antd'
 import 'antd/dist/antd.css'
 import styled from 'styled-components'
-import { AnySchema, ValidationError } from 'yup'
+import { ValidationError } from 'yup'
 import { pasteEvent } from './utils'
 import TableFooter from './TableFooter'
 import './style.css'
+import { IAntdExcelCopyPasteTableProps } from './AntdExcelCopyPasteTable.types'
 
 const Input = styled.input`
   padding: 2em;
@@ -15,17 +16,6 @@ const Input = styled.input`
   color: palevioletred;
   width: 100%;
 `
-
-interface IAntdExcelCopyPasteTableProps {
-  tableDataHandler?: (tableData: unknown[]) => void
-  actionButtonTitle?: string
-  validation?: Ivalidation
-}
-
-export interface Ivalidation {
-  validationSchema: AnySchema
-  validateOnPaste?: boolean
-}
 
 const AntdExcelCopyPasteTable: React.FC<IAntdExcelCopyPasteTableProps> = props => {
   const { tableDataHandler, validation, actionButtonTitle } = props
